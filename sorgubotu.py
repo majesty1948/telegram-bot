@@ -1,5 +1,6 @@
 import os
 import asyncio
+import sys
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
     ApplicationBuilder,
@@ -9,8 +10,13 @@ from telegram.ext import (
     filters
 )
 
-# TOKEN ARTIK ORTAM DEĞİŞKENİNDEN ALINIYOR
+# TOKEN ortam değişkeninden alınır
 TOKEN = os.getenv("TOKEN")
+
+# TOKEN kontrolü (Railway debug için)
+if not TOKEN:
+    print("TOKEN BULUNAMADI")
+    sys.exit(1)
 
 BASE_TEXT = (
     "🚫 Bot şu an aktif değil!\n\n"
@@ -50,4 +56,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
