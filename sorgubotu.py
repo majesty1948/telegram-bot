@@ -10,12 +10,11 @@ from telegram.ext import (
     filters
 )
 
-# TOKEN ortam değişkeninden alınır
+# TOKEN Render Environment Variable'dan alınır
 TOKEN = os.getenv("TOKEN")
 
-# TOKEN kontrolü (Railway debug için)
 if not TOKEN:
-    print("TOKEN BULUNAMADI")
+    print("HATA: TOKEN bulunamadı")
     sys.exit(1)
 
 BASE_TEXT = (
@@ -56,5 +55,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
